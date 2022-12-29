@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class reservation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int totalSeats = 10;
+        int seatsBooked = 0;
+        boolean reservationStatus = true;
+
+        while (reservationStatus) {
+            System.out.println("Enter the number of seats you want to book:");
+            int seatsToBeBooked = scanner.nextInt();
+            if (seatsToBeBooked < 1 || seatsToBeBooked > (totalSeats - seatsBooked)) {
+                System.out.println("Invalid number of seats!");
+            } else {
+                seatsBooked += seatsToBeBooked;
+                System.out.println("Reservation successful!");
+                System.out.println("Total seats booked: " + seatsBooked);
+            }
+            if (seatsBooked == totalSeats) {
+                System.out.println("All seats booked. No more reservations available.");
+                reservationStatus = false;
+            }
+        }
+        scanner.close();
+  }
+}
